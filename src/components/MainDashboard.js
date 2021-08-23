@@ -1,4 +1,5 @@
 import SiteCard from "./SiteCard";
+import useFetchData from "../hooks/useFetchData";
 
 import aerovekLogo from "../assets/images/aerovek-logo.jpeg"
 import bhnetworkLogo from "../assets/images/bhnetwork-logo.png"
@@ -6,15 +7,25 @@ import elrondLogo from "../assets/images/elrond-logo.png"
 
 const MainDashboard = ({ myAddress }) => {
 
+    const dataAddress = useFetchData(`https://api.elrond.com/accounts/${myAddress}`);
+    const dataEconomics = useFetchData('https://api.elrond.com/economics')
+
     return ( 
         <>
-        <h1>{ myAddress }</h1>
+
         {/* Portfolio Value & Impermanent Loss*/}
 
             <div className="container portfolio my-3 ">
                 <div className="row">
                     <div className="col-md bg-white mb-3 mx-1 shadow-sm">
-                        <h4 className="p-3">Portfolio Value: ___ $</h4>
+                        <h4 className="px-3">Portfolio Value: {myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
+                                                              ((dataAddress.apiData.balance / 1e18)*(dataEconomics.apiData.price)).toLocaleString(): // multiply egold amount with price
+                                                               <span>___</span> } $
+                        </h4> 
+                        <p className="px-3">{myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
+                                                              (dataAddress.apiData.balance / 1e18).toLocaleString(): // multiply egold amount with price
+                                                               <span>___</span> } EGLD</p>
+
                     </div>
                     <div className="col-md bg-white shadow-sm mb-3 mx-1 ">
                         <h4 className="p-3">Impermanent Loss: ___ $</h4>
