@@ -4,6 +4,7 @@ import useFetchData from "../hooks/useFetchData";
 import aerovekLogo from "../assets/images/aerovek-logo.jpeg"
 import bhnetworkLogo from "../assets/images/bhnetwork-logo.png"
 import elrondLogo from "../assets/images/elrond-logo.png"
+import numeral from "numeral";
 
 const MainDashboard = ({ myAddress }) => {
 
@@ -19,11 +20,11 @@ const MainDashboard = ({ myAddress }) => {
                 <div className="row">
                     <div className="col-md bg-white mb-3 mx-1 shadow-sm">
                         <h4 className="px-3">Portfolio Value: {myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
-                                                              ((dataAddress.apiData.balance / 1e18)*(dataEconomics.apiData.price)).toLocaleString(): // multiply egold amount with price
+                                                              numeral((dataAddress.apiData.balance / 1e18)*(dataEconomics.apiData.price)).format('0.00a'): // multiply egold amount with price
                                                                <span>___</span> } $
                         </h4> 
                         <p className="px-3">{myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
-                                                              (dataAddress.apiData.balance / 1e18).toLocaleString(): // multiply egold amount with price
+                                                              numeral(dataAddress.apiData.balance / 1e18).format('0.00a'): // multiply egold amount with price
                                                                <span>___</span> } EGLD</p>
 
                     </div>
