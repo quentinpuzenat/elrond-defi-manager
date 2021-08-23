@@ -4,9 +4,11 @@ import aerovekLogo from "../assets/images/aerovek-logo.jpeg"
 import bhnetworkLogo from "../assets/images/bhnetwork-logo.png"
 import elrondLogo from "../assets/images/elrond-logo.png"
 
-const MainDashboard = () => {
+const MainDashboard = ({ myAddress }) => {
+
     return ( 
         <>
+        <h1>{ myAddress }</h1>
         {/* Portfolio Value & Impermanent Loss*/}
 
             <div className="container portfolio my-3 ">

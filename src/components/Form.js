@@ -1,13 +1,18 @@
 import useSignUpForm from "../hooks/useSignUpForm";
 
-const Form = () => {
+const Form = ({ parentCallback }) => {
 
-    const {input, handleInputChange, handleSubmit} = useSignUpForm(() => {console.log(input)});
+    const {input, handleInputChange, handleSubmit} = useSignUpForm(() => {console.log(`erd address is: ${input}`)});
+
+    const onTrigger = (event) => {
+        handleSubmit(event);
+        parentCallback(input);
+    }
 
     return ( 
         <>
         <div className="container my-5">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={onTrigger}>
                 <div className="row justify-content-center">
                     <div className="col-md-8">
                         <div className="form-floating mb-3">

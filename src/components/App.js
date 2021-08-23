@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import '../App.css';
 
 //import * as Dapp from "@elrondnetwork/dapp";
@@ -10,11 +10,18 @@ import Form from './Form';
 
 
 function App() {
+
+  let [myAddress, setMyAddress] = useState("");
+
+  const handleAddressCallback = (childData) => {
+        setMyAddress(childData);
+  }
+
   return (
     <div className="App bg-white">
       <MyNavbar />
-      <Form />
-      <MainDashboard />
+      <Form parentCallback={ handleAddressCallback }/>
+      <MainDashboard myAddress={ myAddress }/>
     </div>
   );
 }
