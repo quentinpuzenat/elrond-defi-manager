@@ -23,7 +23,7 @@ const Form = ({ parentCallback }) => {
                         id="erdAddress"
                         defaultValue={input}
                         required/>
-                        <button type="submit" onClick={onTrigger} className="shadow-lg bg-gradient-to-br from-indigo-600 to-blue-400 text-white ml-2 p-2 rounded-xl">Submit</button>
+                        <button type="submit" onClick={onTrigger} className="hover:shadow-xl bg-gradient-to-br from-blue-400 hover:from-indigo-600 to-blue-400 text-white ml-2 p-2 rounded-xl">Submit</button>
                     </div>
                 </div>
             </div>
