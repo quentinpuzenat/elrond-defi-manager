@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@craco/craco": "^6.2.0",
     "@elrondnetwork/dapp": "^0.0.37",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
-    "bootstrap": "^5.1.0",
     "numeral": "^2.0.6",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -41,5 +41,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.8.6",
+    "postcss": "^7.0.36",
+    "stylelint-config-recommended": "^5.0.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.7"
   }
 }

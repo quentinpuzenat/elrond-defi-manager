@@ -7,15 +7,30 @@ import elrondLogo from "../assets/images/elrond-logo.png"
 import numeral from "numeral";
 
 const MainDashboard = ({ myAddress }) => {
+    
+    const dataAddress = useFetchData(`https://devnet-api.elrond.com/accounts/${myAddress}`, myAddress);
+    const dataTokens = useFetchData(`https://devnet-api.elrond.com/accounts/${myAddress}/tokens`)
+    const dataEconomics = useFetchData('https://api.elrond.com/economics', myAddress)
 
-    const dataAddress = useFetchData(`https://api.elrond.com/accounts/${myAddress}`);
-    const dataEconomics = useFetchData('https://api.elrond.com/economics')
+
+    let array = new Array(JSON.stringify(dataTokens.apiData))
+    let tokens = [];
+    if (myAddress !== "" && !dataAddress.serverError) {
+        for(var i = 0; i < array.length; i++) {
+            console.log(array[i].name)
+            tokens.push(array[i].name)
+        }
+    }
 
     return ( 
         <>
+        <h1>{tokens}</h1>
+        <p>{array[2]}</p>
+        <p>{JSON.stringify(dataTokens.apiData)[0]}</p>
+
+
 
         {/* Portfolio Value & Impermanent Loss*/}
-
             <div className="container portfolio my-3 ">
                 <div className="row">
                     <div className="col-md bg-white mb-3 mx-1 shadow-sm">
@@ -25,7 +40,9 @@ const MainDashboard = ({ myAddress }) => {
                         </h4> 
                         <p className="px-3">{myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
                                                               numeral(dataAddress.apiData.balance / 1e18).format('0.00a'): // multiply egold amount with price
-                                                               <span>___</span> } EGLD</p>
+                                                               <span>___</span> } xEGLD</p>
+
+                        
 
                     </div>
                     <div className="col-md bg-white shadow-sm mb-3 mx-1 ">
