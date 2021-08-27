@@ -8,9 +8,10 @@ const useFetchData = (url, myAddress) => {
 
     // only fetch if url changes (see dependencies)
     useEffect(() => {
+
         setIsLoading(true); // we want to show the loader when the API has initiated a call to the server
         
-        const fetchData = async () => {
+        const fetchData = async (url) => {
           try { // try block
             const resp = await axios.get(url);
             const data = await resp?.data;
@@ -23,7 +24,10 @@ const useFetchData = (url, myAddress) => {
           }
         };
     
-        fetchData(); // we call fetchData function that we created
+        
+        fetchData(url); // we call fetchData function that we created
+        
+        
       }, [url, myAddress]);
 
 
