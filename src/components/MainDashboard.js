@@ -1,4 +1,5 @@
 import SiteCard from "./SiteCard";
+import Currency from "./Currency";
 import useFetchData from "../hooks/useFetchData";
 
 import aerovekLogo from "../assets/images/aerovek-logo.jpeg"
@@ -16,23 +17,14 @@ const MainDashboard = ({ myAddress }) => {
 
     return ( 
         <>
-
         <p className="mx-4" >test address: <br/>
             <span className="font-bold text-xl">erd1qlnf8vnpxkj3wcf32zmw2krdkgqepc9gy9djvk5wd23maq8mzyqs26vss9</span>
         </p>
 
-
-        {/* <h1>{tokens}</h1>
-        <p>{array[2]}</p> */}
-        <p className="m-3">{myAddress !== "" && currenciesArray !== null? 
-        currenciesArray.map(x => `${JSON.stringify(x["name"])}, `): "" }</p>
-
-
-
         {/* Portfolio Value & Impermanent Loss*/}
-            <div className="container portfolio my-3 ">
-                <div className="flex flex-row">
-                    <div className=" bg-gradient-to-br from-blue-500 to-green-500 rounded-xl mb-3 mx-1 shadow-xl">
+            <div className=" my-3 mx-4">
+                <div className="flex flex-row justify-items-center w-full">
+                    <div className="flex-auto bg-gradient-to-br from-blue-500 to-green-500 rounded-xl mb-3 mx-1 shadow-xl">
                         <h4 className="px-5 py-2 text-xl text-white font-semibold">Portfolio Value: {myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
                                                               numeral((dataAddress.apiData.balance / 1e18)*(dataEconomics.apiData.price)).format('0.00a'): // multiply egold amount with price
                                                                <span>___</span> } $
@@ -43,12 +35,28 @@ const MainDashboard = ({ myAddress }) => {
 
                         
                     </div>
-                    <div className="bg-gradient-to-br from-red-500 to-pink-500 rounded-xl mb-3 mx-1 shadow-xl">
+                    <div className="flex-auto bg-gradient-to-br from-red-500 to-pink-500 rounded-xl mb-3 mx-1 shadow-xl">
                         <h4 className="px-5 py-2 text-xl text-white font-semibold">Impermanent Loss: ___ $</h4>
                     </div>
                 </div>
             </div>
+
+        {/* Recap currencies */}
             
+        <div className="m-3">
+        <ul className="bg-red-500 flex flex-row gap-2 flex-wrap justify-items-center">
+            {myAddress !== "" && currenciesArray !== null?
+            currenciesArray.map(item =>
+                <li key={JSON.stringify(item["identifier"])} 
+                    className="flex-1 m-2 bg-yellow-300">
+                    {JSON.stringify(item)}
+                    <Currency name={JSON.stringify(item["name"])}/>
+                </li>
+                ): "" }
+        </ul>
+        </div>
+
+        
         {/* All sites where user have positions */}
             <div className="container my-3">
                 <div className="row">
