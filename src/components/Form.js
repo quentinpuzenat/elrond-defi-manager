@@ -19,7 +19,7 @@ const Form = ({ parentCallback }) => {
                     </div>
                     <div className="flex flex-row justify-center gap-1 w-full">
                         <input type="text"
-                        className="focus:ring-blue-600 focus:ring-2 focus:outline-none shadow-lg bg-gradient-to-br from-indigo-300 to-blue-200 rounded-xl px-4 py-2 w-full"
+                        className=" ring-2 ring-blue-600 focus:outline-none shadow-lg rounded-xl px-4 py-2 w-full"
                         id="erdAddress"
                         defaultValue={input}
                         required/>
