@@ -18,6 +18,7 @@ const useFetchData = (url, myAddress) => {
     
             setApiData(data); // Once the data is awaited we store it in apiData using setApiData
             setIsLoading(false); // loading is set to false, we finished fetching
+            setServerError(null)
           } catch (error) { // catch block
             setServerError(error);
             setIsLoading(false);

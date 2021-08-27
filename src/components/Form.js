@@ -19,11 +19,11 @@ const Form = ({ parentCallback }) => {
                     </div>
                     <div className="flex flex-row justify-center gap-1 w-full">
                         <input type="text"
-                        className="focus:ring-blue-600 focus:ring-2 focus:outline-none shadow-lg bg-gradient-to-br from-indigo-300 to-blue-200 rounded text-xs p-2 w-full"
+                        className="focus:ring-blue-600 focus:ring-2 focus:outline-none shadow-lg bg-gradient-to-br from-indigo-300 to-blue-200 rounded-xl px-4 py-2 w-full"
                         id="erdAddress"
                         defaultValue={input}
                         required/>
-                        <button type="submit" onClick={onTrigger} className="shadow-lg bg-gradient-to-br from-indigo-600 to-blue-400 text-white ml-2 p-2 rounded-2xl">Submit</button>
+                        <button type="submit" onClick={onTrigger} className="shadow-lg bg-gradient-to-br from-indigo-600 to-blue-400 text-white ml-2 p-2 rounded-xl">Submit</button>
                     </div>
                 </div>
             </div>
