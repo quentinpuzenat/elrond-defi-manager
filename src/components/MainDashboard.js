@@ -33,11 +33,11 @@ const MainDashboard = ({ myAddress }) => {
 
         {/* Portfolio Value & Impermanent Loss*/}
             <div className=" my-3 mx-4">
-                <div className="flex flex-row justify-items-center w-full">
-                    <div className="flex-auto bg-gradient-to-br from-blue-500 to-green-500 rounded-xl mb-3 mx-1 shadow-xl">
-                        <h4 className="px-5 py-2 text-xl text-white font-semibold">Portfolio Value: {myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
+                <div className="flex flex-row gap-2 justify-items-center w-full">
+                    <div className="flex-auto bg-gradient-to-br from-blue-500 to-green-500 rounded-xl mb-3 shadow-xl">
+                        <h4 className="px-5 py-2 text-xl text-white font-semibold">Portfolio Value  $ {myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
                                                               numeral((dataAddress.apiData.balance / 1e18)*(dataEconomics.apiData.price)).format('0.00a'): // multiply egold amount with price
-                                                               <span>___</span> } $
+                                                               <span>___</span> }
                         </h4> 
                         <p className="px-5 py-2 text-xl text-white font-semibold">{myAddress !== "" && !dataAddress.serverError? // if myAddress empty we take precaution for displaying balance
                                                               numeral(dataAddress.apiData.balance / 1e18).format('0.00a'): // multiply egold amount with price
@@ -45,7 +45,7 @@ const MainDashboard = ({ myAddress }) => {
 
                         
                     </div>
-                    <div className="flex-auto bg-gradient-to-br from-red-500 to-pink-500  rounded-xl mb-3 mx-1 shadow-xl">
+                    <div className="flex-auto bg-gradient-to-br from-red-500 to-pink-500  rounded-xl mb-3 shadow-xl">
                         <h4 className="px-5 py-2 text-xl text-white font-semibold">Impermanent Loss: ___ $</h4>
                     </div>
                 </div>
@@ -60,12 +60,12 @@ const MainDashboard = ({ myAddress }) => {
             </h1> : ""}
         </div>
             
-        <div className="mx-3 my-1">
-        <ul className="flex flex-row gap-1 flex-wrap justify-items-center">
+        <div className="mx-4 my-1">
+        <ul className="flex flex-row gap-2 flex-wrap justify-items-center w-full">
             {myAddress !== "" && currenciesArray !== null?
             currenciesArray.map(item =>
                 <li key={JSON.stringify(item["identifier"])} 
-                    className="flex-auto m-2">
+                    className="flex-auto">
                     {/* {JSON.stringify(item)} */}
                     <Currency item={item}/>
                 </li>
