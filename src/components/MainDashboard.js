@@ -14,22 +14,37 @@ const MainDashboard = ({ myAddress }) => {
     const dataTokens = useFetchData(`https://devnet-api.elrond.com/accounts/${myAddress}/tokens`)
     const dataEconomics = useFetchData('https://api.elrond.com/economics', myAddress)
 
+    // temporaire mais pour afficher le herotag, on utilise pas l'api devnet
+    const dataHerotag = useFetchData(`https://api.elrond.com/accounts/${myAddress}`, myAddress);
+
     const currenciesArray = dataTokens.apiData
 
-    let herotag = null;
+    let herotag = "";
+    let herotag_useful = ""
 
-    if (!dataAddress.serverError && myAddress !== "") {
-        herotag = dataAddress.apiData.username
+
+    if (!dataHerotag.serverError && myAddress !== "") {
+        herotag = dataHerotag.apiData.username
+        if (herotag !== undefined) {
+            herotag_useful = herotag.split('.')
+        }
     }
 
     return ( 
         <>
-        <p className="mx-4" >test address: <br/>
+        <p className=" mx-4" >test address: <br/>
             <span className="font-bold text-xl">erd1qlnf8vnpxkj3wcf32zmw2krdkgqepc9gy9djvk5wd23maq8mzyqs26vss9</span>
         </p>
+        <p className=" mx-4" >test address Louis: <br/>
+            <span className="font-bold text-xl">erd1wlck2dncfrzj2cxm6rkzv0w9n97wxufp0tlvgklkjxtlvt3r667qrp0z4w</span>
+        </p>
+        <p className=" mx-4" >test address Loris: <br/>
+            <span className="font-bold text-xl">erd1y45dahl58y2ksggxqd5p7ghnalrglchch0nzg4w6djwrk9guwy0sme7dul</span>
+        </p>
+        
 
         {/* le herotag marchera sur le mainnet*/}
-        <p className="mx-6 my-2 font-bold text-3xl">Hello {herotag} ! 👋</p> 
+        <p className="mx-6 my-2 font-bold text-3xl">Hello {herotag_useful[0]} ! 👋</p> 
 
         {/* Portfolio Value & Impermanent Loss*/}
             <div className=" my-3 mx-4">
