@@ -18,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="App bg-white">
+    <div className="h-full bg-gray-50 bg-opacity-75 pt-20">
       {/* <MyNavbar /> */}
       <Form parentCallback={ handleAddressCallback }/>
       <MainDashboard myAddress={ myAddress }/>

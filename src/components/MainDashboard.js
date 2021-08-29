@@ -44,7 +44,7 @@ const MainDashboard = ({ myAddress }) => {
         
 
         {/* le herotag marchera sur le mainnet*/}
-        <p className="mx-6 my-2 font-bold text-3xl">Hello {herotag_useful[0]} ! 👋</p> 
+        <p className="mx-6 my-2 font-bold text-3xl">Hello {herotag !== ""? <span className="text-blue-600">@</span>: ""}{herotag_useful[0]} ! 👋</p> 
 
         {/* Portfolio Value & Impermanent Loss*/}
             <div className=" my-3 mx-4">
