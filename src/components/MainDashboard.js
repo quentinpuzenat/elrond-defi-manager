@@ -55,8 +55,11 @@ const MainDashboard = ({ myAddress }) => {
                <div className="flex-auto bg-gradient-to-br from-blue-500 to-green-500 rounded-xl mb-3 shadow-xl">
                   <h4 className="px-5 py-2 text-xl text-white font-semibold">
                      Portfolio Value ${' '}
-                     {myAddress !== '' && !dataAddress.serverError ? ( // if myAddress empty we take precaution for displaying balance
+                     {myAddress !== '' &&
+                     !dataAddress.serverError &&
+                     !dataAddress.isLoading ? ( // if myAddress empty we take precaution for displaying balance
                         dataAddress.apiData &&
+                        dataEconomics &&
                         numeral(
                            (dataAddress.apiData.balance / 1e18) *
                               dataEconomics.apiData.price
@@ -66,7 +69,9 @@ const MainDashboard = ({ myAddress }) => {
                      )}
                   </h4>
                   <p className="px-5 py-2 text-xl text-white font-semibold">
-                     {myAddress !== '' && !dataAddress.serverError ? ( // if myAddress empty we take precaution for displaying balance
+                     {myAddress !== '' &&
+                     !dataAddress.serverError &&
+                     !dataAddress.isLoading ? ( // if myAddress empty we take precaution for displaying balance
                         dataAddress.apiData &&
                         numeral(dataAddress.apiData.balance / 1e18).format(
                            '0.00a'

@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import { useHistory } from 'react-router';
 import { AddressContext } from '../context';
 import { Link } from 'react-router-dom';
 
@@ -16,7 +15,6 @@ const Form = () => {
    console.log(value);
 
    const handleInputChangeContext = value.handleInputChange;
-   const handleSubmitContext = value.handleSubmit;
 
    return (
       <>
