@@ -13,11 +13,6 @@ const Header = () => {
                     <p className="my-auto">Team</p>
                     </Link>
                 </div>
-                <div className="flex">
-                <button type="submit" className="my-auto hover:shadow-xl bg-gradient-to-br from-blue-400 hover:from-indigo-600 to-blue-400 text-white p-2 rounded-xl">
-                    Change Mode
-                </button>
-                </div>
             </div>
         </nav>
         </>
