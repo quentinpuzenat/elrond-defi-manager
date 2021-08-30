@@ -1,27 +1,21 @@
-import React, {useState} from 'react';
+import React, {useContext} from 'react';
 
 //import * as Dapp from "@elrondnetwork/dapp";
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import MainDashboard from '../components/MainDashboard';
 import Form from '../components/Form';
-
+import { AddressContext } from '../context';
 
 function App() {
 
-  let [myAddress, setMyAddress] = useState("");
-
-  const handleAddressCallback = (childData) => {
-        setMyAddress(childData);
-
-  
-  }
+  const value = useContext(AddressContext)
 
   return (
     <div className="h-full bg-gray-50 bg-opacity-75 pt-20">
       {/* <MyNavbar /> */}
-      <Form parentCallback={ handleAddressCallback }/>
-      <MainDashboard myAddress={ myAddress }/>
+      <Form />
+      <MainDashboard myAddress={ value.input }/>
     </div>
   );
 }

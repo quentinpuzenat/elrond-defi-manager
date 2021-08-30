@@ -7,24 +7,27 @@ import App from './pages/App';
 import Team from './pages/Team';
 import Header from './components/Header';
 import Error from './components/Error404';
+import AddressProvider from './context';
 
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Header />
-      <Switch>
-        <Route path="/" exact>
-          <App />
-        </Route>
-        <Route path="/team">
-          <Team />
-        </Route>
-        <Route>
-          <Error />
-        </Route>
-      </Switch>
+      <AddressProvider>
+        <Header />
+        <Switch>
+          <Route path="/" exact>
+            <App />
+          </Route>
+          <Route path="/team">
+            <Team />
+          </Route>
+          <Route>
+            <Error />
+          </Route>
+        </Switch>
+      </AddressProvider>
     </Router>
   </React.StrictMode>,
   document.getElementById('root')
