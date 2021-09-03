@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.4.10",
     "@craco/craco": "^6.2.0",
     "@elrondnetwork/dapp": "^0.0.37",
     "@testing-library/jest-dom": "^5.14.1",
@@ -10,6 +11,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.21.1",
     "bootstrap": "^5.1.0",
+    "graphql": "^15.5.2",
     "numeral": "^2.0.6",
     "prettier": "^2.3.2",
     "prop-types": "^15.7.2",

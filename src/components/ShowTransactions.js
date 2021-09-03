@@ -20,7 +20,7 @@ const ShowTransactions = ({ myAddress }) => {
                ? txArray.map((item) => (
                     <div
                        key={JSON.stringify(item['txHash'])}
-                       className="shadow-xl flex flex-shrink-1 my-2 w-full ring-2 ring-black"
+                       className="shadow-xl flex flex-shrink-1 my-2 p-2 w-full ring-2 ring-black "
                     >
                        <Transaction tx={item} />
                     </div>

@@ -1,5 +1,12 @@
+import useFetchData from '../hooks/useFetchData';
+
 const Transaction = ({ tx }) => {
    const txDate = tx.timestamp * 1000; // date de la transaction
+
+   let txInfos = useFetchData(
+      `https://devnet-api.elrond.com/transactions/${tx.txHash}`
+   );
+   console.log(txInfos.price);
 
    return (
       <>

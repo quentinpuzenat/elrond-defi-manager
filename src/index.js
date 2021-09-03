@@ -12,26 +12,36 @@ import AddressProvider from './context';
 
 import reportWebVitals from './reportWebVitals';
 
+// imports for GRAPH QL
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+
+const MaiarExchangeClient = new ApolloClient({
+   uri: 'https://devnet-exchange-graph.elrond.com/graphql',
+   cache: new InMemoryCache(),
+});
+
 ReactDOM.render(
    <React.StrictMode>
       <Router>
-         <AddressProvider>
-            <Header />
-            <Switch>
-               <Route path="/" exact>
-                  <App />
-               </Route>
-               <Route path="/team" exact>
-                  <Team />
-               </Route>
-               <Route path="/:erdAddress">
-                  <DashboardPage />
-               </Route>
-               <Route>
-                  <Error />
-               </Route>
-            </Switch>
-         </AddressProvider>
+         <ApolloProvider client={MaiarExchangeClient}>
+            <AddressProvider>
+               <Header />
+               <Switch>
+                  <Route path="/" exact>
+                     <App />
+                  </Route>
+                  <Route path="/team" exact>
+                     <Team />
+                  </Route>
+                  <Route path="/:erdAddress">
+                     <DashboardPage />
+                  </Route>
+                  <Route>
+                     <Error />
+                  </Route>
+               </Switch>
+            </AddressProvider>
+         </ApolloProvider>
       </Router>
    </React.StrictMode>,
    document.getElementById('root')
