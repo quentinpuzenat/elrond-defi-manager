@@ -10,9 +10,9 @@ const Transaction = ({ tx }) => {
 
    return (
       <>
-         <div className="flex flex-row gap-1 flex-shrink-1 m-1">
-            <div className="flex flex-col gap-1 flex-shrink-1">
-               <p className="">
+         <div className="flex flex-row flex-wrap gap-1 flex-shrink-1 m-1">
+            <div className="flex flex-auto flex-col gap-1 flex-shrink-1">
+               <p className="flex-auto">
                   <span className=" font-semibold">Hash</span>:{' '}
                   {tx !== undefined ? tx.txHash : 'hash'}
                </p>

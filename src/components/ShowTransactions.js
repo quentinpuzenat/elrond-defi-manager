@@ -15,7 +15,7 @@ const ShowTransactions = ({ myAddress }) => {
          <div className="mt-8">
             <h1 className="mx-6 font-bold text-2xl">Your transactions</h1>
          </div>
-         <div className="flex flex-wrap flex-shrink-1 mx-5">
+         <div className="flex flex-col justify-items-center mx-5">
             {txArray !== undefined
                ? txArray.map((item) => (
                     <div

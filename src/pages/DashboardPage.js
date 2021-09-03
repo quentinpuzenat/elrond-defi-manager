@@ -11,9 +11,8 @@ const DashboardPage = () => {
          <div className="h-full bg-gray-50 bg-opacity-75 pt-20">
             <MainDashboard myAddress={erdAddress} />
          </div>
-         <div className="bg-blue-600">
-            <MaiarExchangePrices />
-         </div>
+
+         <MaiarExchangePrices />
          <div className="w-full ">
             <ShowTransactions myAddress={erdAddress} />
          </div>
