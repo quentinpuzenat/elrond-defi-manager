@@ -1,11 +1,7 @@
 import TeamCard from '../components/TeamCard';
 import defaultPicture from '../assets/images/tanjiro_pp.png';
-import { AddressContext } from '../context';
-import { useContext } from 'react';
 
 const Team = () => {
-   const value = useContext(AddressContext);
-
    return (
       <>
          <div className="h-full bg-gray-50 bg-opacity-75 pt-20">

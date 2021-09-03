@@ -1,10 +1,6 @@
-import SiteCard from './SiteCard';
 import Currency from './Currency';
 import useFetchData from '../hooks/useFetchData';
 
-import aerovekLogo from '../assets/images/aerovek-logo.jpeg';
-import bhnetworkLogo from '../assets/images/bhnetwork-logo.png';
-import elrondLogo from '../assets/images/elrond-logo.png';
 import numeral from 'numeral';
 
 const MainDashboard = ({ myAddress }) => {
@@ -56,10 +52,11 @@ const MainDashboard = ({ myAddress }) => {
                   <h4 className="px-5 py-2 text-xl text-white font-semibold">
                      Portfolio Value ${' '}
                      {myAddress !== '' &&
+                     dataAddress.apiData !== undefined &&
+                     dataEconomics !== undefined &&
                      !dataAddress.serverError &&
-                     !dataAddress.isLoading ? ( // if myAddress empty we take precaution for displaying balance
-                        dataAddress.apiData &&
-                        dataEconomics &&
+                     !dataAddress.isLoading &&
+                     !dataEconomics.isLoading ? ( // we take multiple precautions to avoid bugs
                         numeral(
                            (dataAddress.apiData.balance / 1e18) *
                               dataEconomics.apiData.price
@@ -94,7 +91,7 @@ const MainDashboard = ({ myAddress }) => {
 
          <div>
             {myAddress !== '' && currenciesArray !== null ? (
-               <h1 className="mx-6 font-bold text-xl">Your tokens</h1>
+               <h1 className="mx-6 font-bold text-2xl">Your tokens</h1>
             ) : (
                ''
             )}
@@ -102,13 +99,12 @@ const MainDashboard = ({ myAddress }) => {
 
          <div className="mx-4 my-1">
             <ul className="flex flex-row gap-2 flex-wrap justify-items-center w-full">
-               {myAddress !== '' && currenciesArray !== null
+               {myAddress !== '' && currenciesArray !== undefined
                   ? currenciesArray.map((item) => (
                        <li
                           key={JSON.stringify(item['identifier'])}
                           className="flex-auto"
                        >
-                          {/* {JSON.stringify(item)} */}
                           <Currency item={item} />
                        </li>
                     ))
