@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import * as Dapp from '@elrondnetwork/dapp';
 
 //import * as Dapp from "@elrondnetwork/dapp";
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Form from '../components/Form';
 
-function App() {
+function Home() {
    return (
       <div className="h-full bg-gray-50 bg-opacity-75 pt-20">
          <p className=" mx-4">
@@ -33,4 +35,4 @@ function App() {
    );
 }
 
-export default App;
+export default Home;
