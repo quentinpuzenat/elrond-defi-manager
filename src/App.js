@@ -43,9 +43,9 @@ const App = () => {
             <ContextProvider>
                <ApolloProvider client={MaiarExchangeClient}>
                   <AddressProvider>
-                     <Layout>
-                        <Switch>
-                           {/* <Route path="/" exact>
+                     {/* <Layout> */}
+                     <Switch>
+                        {/* <Route path="/" exact>
                               <Home />
                            </Route>
                            <Route path="/team" exact>
@@ -54,54 +54,52 @@ const App = () => {
                            <Route path="/:erdAddress">
                               <DashboardPage />
                            </Route> */}
-                           <Route
-                              path={routeNames.unlock}
-                              component={() => (
-                                 <Dapp.Pages.Unlock
-                                    callbackRoute={routeNames.dashboard}
-                                    lead="Please select your login method:"
-                                    ledgerRoute={routeNames.ledger}
-                                    walletConnectRoute={
-                                       routeNames.walletconnect
-                                    }
-                                 />
-                              )}
-                              exact={true}
-                           />
-                           <Route
-                              path={routeNames.ledger}
-                              component={() => (
-                                 <Dapp.Pages.Ledger
-                                    callbackRoute={routeNames.dashboard}
-                                 />
-                              )}
-                              exact={true}
-                           />
-                           <Route
-                              path={routeNames.walletconnect}
-                              component={() => (
-                                 <Dapp.Pages.WalletConnect
-                                    callbackRoute={routeNames.dashboard}
-                                    logoutRoute={routeNames.home}
-                                    title="Maiar Login"
-                                    lead="Scan the QR code using Maiar"
-                                 />
-                              )}
-                              exact={true}
-                           />
-                           {routes.map((route, i) => (
-                              <Route
-                                 path={route.path}
-                                 key={route.path + i}
-                                 component={route.component}
-                                 exact={true}
+                        <Route
+                           path={routeNames.unlock}
+                           component={() => (
+                              <Dapp.Pages.Unlock
+                                 callbackRoute={routeNames.dashboard}
+                                 lead="Please select your login method:"
+                                 ledgerRoute={routeNames.ledger}
+                                 walletConnectRoute={routeNames.walletconnect}
                               />
-                           ))}
-                           <Route>
-                              <Error />
-                           </Route>
-                        </Switch>
-                     </Layout>
+                           )}
+                           exact={true}
+                        />
+                        <Route
+                           path={routeNames.ledger}
+                           component={() => (
+                              <Dapp.Pages.Ledger
+                                 callbackRoute={routeNames.dashboard}
+                              />
+                           )}
+                           exact={true}
+                        />
+                        <Route
+                           path={routeNames.walletconnect}
+                           component={() => (
+                              <Dapp.Pages.WalletConnect
+                                 callbackRoute={routeNames.dashboard}
+                                 logoutRoute={routeNames.home}
+                                 title="Maiar Login"
+                                 lead="Scan the QR code using Maiar"
+                              />
+                           )}
+                           exact={true}
+                        />
+                        {routes.map((route, i) => (
+                           <Route
+                              path={route.path}
+                              key={route.path + i}
+                              component={route.component}
+                              exact={true}
+                           />
+                        ))}
+                        <Route>
+                           <Error />
+                        </Route>
+                     </Switch>
+                     {/* </Layout> */}
                   </AddressProvider>
                </ApolloProvider>
             </ContextProvider>

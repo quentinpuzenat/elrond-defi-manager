@@ -2,6 +2,9 @@
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Form from '../components/Form';
+import { routes, routeNames } from '../routes';
+import { Link } from 'react-router-dom';
+import * as Dapp from '@elrondnetwork/dapp';
 
 function Home() {
    return (
@@ -26,6 +29,10 @@ function Home() {
          </p>
          <Form />
          {/* <MainDashboard myAddress={ value.input }/> */}
+
+         <Dapp.Authenticate routes={routes} unlockRoute={routeNames.unlock}>
+            <button>Login</button>
+         </Dapp.Authenticate>
       </div>
    );
 }

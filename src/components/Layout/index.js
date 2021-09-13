@@ -3,7 +3,13 @@ import * as Dapp from '@elrondnetwork/dapp';
 import { routes, routeNames } from '../../routes';
 import Header from './Header';
 
+import { useLocation } from 'react-router-dom';
+
 const Layout = ({ children }) => {
+   const location = useLocation();
+
+   console.log(location);
+
    const { loggedIn } = Dapp.useContext();
    const refreshAccount = Dapp.useRefreshAccount();
 
