@@ -2,6 +2,7 @@ import React from 'react';
 import * as Dapp from '@elrondnetwork/dapp';
 import { routes, routeNames } from '../../routes';
 import Header from './Header';
+import Footer from './Footer';
 
 import { useLocation } from 'react-router-dom';
 
@@ -21,12 +22,14 @@ const Layout = ({ children }) => {
    }, [loggedIn]);
 
    return (
-      <div className="bg-light flex flex-col flex-wrap">
+      <div className="bg-gray-50 flex flex-col flex-wrap">
          <Header />
+         <div className="bg-gray-50"></div>
          {children}
          {/* <Dapp.Authenticate routes={routes} unlockRoute={routeNames.unlock}>
             {children}
          </Dapp.Authenticate> */}
+         <Footer />
       </div>
    );
 };
