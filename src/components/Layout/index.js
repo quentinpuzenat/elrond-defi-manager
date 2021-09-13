@@ -23,11 +23,10 @@ const Layout = ({ children }) => {
    return (
       <div className="bg-light flex flex-col flex-wrap">
          <Header />
-         <main className="flex flex-col">
-            <Dapp.Authenticate routes={routes} unlockRoute={routeNames.unlock}>
-               {children}
-            </Dapp.Authenticate>
-         </main>
+         {children}
+         {/* <Dapp.Authenticate routes={routes} unlockRoute={routeNames.unlock}>
+            {children}
+         </Dapp.Authenticate> */}
       </div>
    );
 };

@@ -30,9 +30,7 @@ function Home() {
          <Form />
          {/* <MainDashboard myAddress={ value.input }/> */}
 
-         <Dapp.Authenticate routes={routes} unlockRoute={routeNames.unlock}>
-            <button>Login</button>
-         </Dapp.Authenticate>
+         {/*  */}
       </div>
    );
 }
