@@ -6,9 +6,6 @@ import * as Dapp from '@elrondnetwork/dapp'; // Wallet Connect
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'; //GraphQL
 
 import './index.css';
-import Home from './pages/Home';
-import Team from './pages/Team';
-import DashboardPage from './pages/DashboardPage';
 import Layout from './components/Layout';
 import Error from './components/Error404';
 import AddressProvider from './context';

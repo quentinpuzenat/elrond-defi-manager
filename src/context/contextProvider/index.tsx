@@ -35,4 +35,4 @@ function useDispatch() {
   return context;
 }
 
-export default { ContextProvider, useContext, useDispatch };
+export { ContextProvider, useContext, useDispatch };

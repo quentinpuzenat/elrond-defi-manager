@@ -1,4 +1,3 @@
-import * as Dapp from '@elrondnetwork/dapp';
 import DashboardPage from './pages/DashboardPage';
 import Home from './pages/Home';
 import Team from './pages/Team';

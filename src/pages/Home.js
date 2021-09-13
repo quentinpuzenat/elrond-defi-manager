@@ -1,7 +1,3 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import * as Dapp from '@elrondnetwork/dapp';
-
 //import * as Dapp from "@elrondnetwork/dapp";
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -28,7 +24,6 @@ function Home() {
                erd1y45dahl58y2ksggxqd5p7ghnalrglchch0nzg4w6djwrk9guwy0sme7dul
             </span>
          </p>
-         {/* <MyNavbar /> */}
          <Form />
          {/* <MainDashboard myAddress={ value.input }/> */}
       </div>
